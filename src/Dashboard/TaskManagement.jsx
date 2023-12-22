@@ -8,7 +8,9 @@ const TaskManagement = () => {
   // Fetch tasks from your API
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/task");
+      const response = await axios.get(
+        "https://task-quasar-server.vercel.app/task"
+      );
       setTasks(response.data);
     } catch (error) {
       console.error("Error fetching tasks:", error);
@@ -28,7 +30,7 @@ const TaskManagement = () => {
 
     // Update task order on the server
     try {
-      await axios.put("http://localhost:5000/updateTaskOrder", {
+      await axios.put("https://task-quasar-server.vercel.app/updateTaskOrder", {
         tasks: updatedTasks,
       });
       setTasks(updatedTasks);

@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         path: "edittask/:id",
         element: <EditTask></EditTask>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/task/${params.id}`),
+          fetch(`https://task-quasar-server.vercel.app/task/${params.id}`),
       },
       {
         path: "tasklist",

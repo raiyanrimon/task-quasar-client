@@ -5,18 +5,20 @@ import Swal from "sweetalert2";
 const TaskCard = ({ task, tasks, settasks }) => {
   const { title, priority, description, deadline, _id } = task;
   const handleDelete = (_id) => {
-    axios.delete(`http://localhost:5000/task/${_id}`).then((res) => {
-      console.log(res.data);
-      if (res.data.deletedCount > 0) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: `Task has been deleted`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
+    axios
+      .delete(`https://task-quasar-server.vercel.app/task/${_id}`)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.deletedCount > 0) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `Task has been deleted`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
 
     const remaining = tasks.filter((task) => task._id !== _id);
     settasks(remaining);

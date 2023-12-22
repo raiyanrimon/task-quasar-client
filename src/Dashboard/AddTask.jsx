@@ -20,7 +20,10 @@ const AddTask = () => {
     };
 
     try {
-      const taskRes = await axios.post("http://localhost:5000/task", task);
+      const taskRes = await axios.post(
+        "https://task-quasar-server.vercel.app/task",
+        task
+      );
       console.log(taskRes.data);
 
       if (taskRes.data.insertedId) {

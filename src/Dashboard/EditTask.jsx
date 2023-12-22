@@ -20,7 +20,7 @@ const EditTask = () => {
 
     try {
       const menuRes = await axios.patch(
-        `http://localhost:5000/task/${_id}`,
+        `https://task-quasar-server.vercel.app/task/${_id}`,
         task
       );
       console.log(menuRes.data);

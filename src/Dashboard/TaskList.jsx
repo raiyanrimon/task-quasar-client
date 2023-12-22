@@ -8,7 +8,7 @@ const TaskList = () => {
   const [tasks, settasks] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/task?email=${user?.email}`)
+      .get(`https://task-quasar-server.vercel.app/task?email=${user?.email}`)
       .then((res) => settasks(res.data));
   }, [user?.email]);
   return (
